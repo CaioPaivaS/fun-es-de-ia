@@ -1,21 +1,102 @@
 :root {
-  --cor-fundo: #083ce9;
-  --cor-principal: #0a0101;
-  --cor-secundaria: #212333;
-  --cor-destaque: #094cc9;
-  --cor-texto: #fafafa;
-}body {
-  background-color: var(--cor-fundo);
+  --cor-fundo: #061226;
+  --cor-fundo-secundaria: #0b1f3d;
+  --cor-principal: #0e2748;
+  --cor-secundaria: #15385f;
+  --cor-destaque: #5ed9ff;
+  --cor-destaque-escuro: #1b9ed0;
+  --cor-texto: #edf8ff;
+  --cor-texto-suave: #a9c6dd;
+  --sombra-painel: 0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(27, 158, 208, 0.16), transparent 32%),
+    linear-gradient(135deg, var(--cor-fundo), var(--cor-fundo-secundaria));
   color: var(--cor-texto);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}.caixa-principal {
-  background-color: var(--cor-principal);
-  width: 90%;
+  padding: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.caixa-principal {
+  background: linear-gradient(155deg, rgba(21, 56, 95, 0.96), rgba(8, 28, 55, 0.98));
+  border: 1px solid rgba(94, 217, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: var(--sombra-painel);
+  max-width: 820px;
+  width: 100%;
   text-align: center;
-  padding: 20px;
-}h1 {
+  padding: clamp(28px, 6vw, 56px);
+}
+
+h1 {
   color: var(--cor-destaque);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  margin: 0 0 30px;
+  text-shadow: 0 0 24px rgba(94, 217, 255, 0.2);
+}
+
+.caixa-perguntas {
+  color: var(--cor-texto);
+  font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+  line-height: 1.65;
+  margin: 0 auto 30px;
+  max-width: 690px;
+}
+
+.caixa-alternativas {
+  display: grid;
+  gap: 14px;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+.caixa-alternativas button {
+  background: rgba(6, 18, 38, 0.62);
+  border: 1px solid rgba(94, 217, 255, 0.36);
+  border-radius: 10px;
+  color: var(--cor-texto);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+  padding: 16px 20px;
+  text-align: left;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.caixa-alternativas button:hover,
+.caixa-alternativas button:focus-visible {
+  background: var(--cor-secundaria);
+  border-color: var(--cor-destaque);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.caixa-resultado {
+  color: var(--cor-texto-suave);
+  line-height: 1.5;
+  margin-top: 26px;
+}
+
+@media (max-width: 520px) {
+  body {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .caixa-principal {
+    margin-top: 8vh;
+  }
 }
